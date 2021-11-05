@@ -1,0 +1,19 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: podinfo
+  namespace: podinfo
+spec:
+  chart:
+    spec:
+      version: ">=1.0.0"
+  values:
+    image:
+      tag: 5.0.1 # {"$imagepolicy": "podinfo:podinfo:tag"}
+      pullPolicy: IfNotPresent
+    ingress:
+      hosts:
+        - host: podinfo.production
+          paths:
+            - path: /
+              pathType: ImplementationSpecific

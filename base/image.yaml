@@ -1,7 +1,7 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageRepository
 metadata:
-  name: podinfo
+  name: flux-system
 spec:
   image: ghcr.io/stefanprodan/podinfo
   interval: 1m0s
@@ -12,7 +12,7 @@ apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImagePolicy
 metadata:
   name: podinfo
-  namespace: podinfo
+  namespace: flux-system
 spec:
   imageRepositoryRef:
     name: podinfo

@@ -24,3 +24,27 @@ spec:
       range: 5.x.x
     # numerical:
     #   order: asc
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageUpdateAutomation
+metadata:
+  name: podinfo
+spec:
+  interval: 1m0s
+  sourceRef:
+    kind: GitRepository
+    name: podinfo
+  git:
+    checkout:
+      ref:
+        branch: master
+    commit:
+      author:
+        email: fluxcdbot@users.noreply.github.com
+        name: fluxcdbot
+      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
+    push:
+      branch: master
+  update:
+    path: ./staging
+    strategy: Setters

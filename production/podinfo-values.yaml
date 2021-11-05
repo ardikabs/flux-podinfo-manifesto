@@ -10,11 +10,11 @@ spec:
   values:
     image:
       repository: ghcr.io/stefanprodan/podinfo # {"$imagepolicy": "podinfo:podinfo:name"}
-      tag: 5.2.1 # {"$imagepolicy": "podinfo:podinfo:tag"}
+      tag: 5.0.3 # {"$imagepolicy": "podinfo:podinfo:tag"}
       pullPolicy: IfNotPresent
     ingress:
       hosts:
-        - host: podinfo.staging
+        - host: podinfo.production
           paths:
             - path: /
               pathType: ImplementationSpecific

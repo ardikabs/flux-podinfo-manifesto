@@ -9,8 +9,8 @@ spec:
       version: ">=1.0.0"
   values:
     image:
-      repository: ghcr.io/stefanprodan/podinfo # {"$imagepolicy": "flux-system:podinfo:name"}
-      tag: 5.0.3 # {"$imagepolicy": "flux-system:podinfo:tag"}
+      repository: ghcr.io/stefanprodan/podinfo # {"$imagepolicy": "podinfo:podinfo:name"}
+      tag: 5.0.3 # {"$imagepolicy": "podinfo:podinfo:tag"}
       pullPolicy: IfNotPresent
     ingress:
       hosts:
